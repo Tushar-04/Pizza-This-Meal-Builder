@@ -1,0 +1,510 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f7fa;
+    color: #2d3748;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.header h1 {
+    color: #1a202c;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.top-nav {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.top-nav a {
+    color: #4a5568;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.top-nav a.active,
+.top-nav a:hover {
+    background: #1a202c;
+    color: #ffffff;
+}
+
+.main-content,
+.admin-page {
+    display: grid;
+    gap: 2rem;
+}
+
+.meal-selector,
+.item-selector,
+.summary-section,
+.admin-toolbar,
+.admin-layout {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+.meal-selector,
+.item-selector {
+    padding: 1.5rem;
+}
+
+.meal-selector h2,
+.item-selector h2,
+.summary-header h2 {
+    color: #1a202c;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.dropdown-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.dropdown {
+    width: min(100%, 520px);
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e0;
+    border-radius: 8px;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.dropdown:focus,
+.admin-editor input:focus,
+.admin-editor select:focus,
+.admin-editor textarea:focus {
+    border-color: #2b6cb0;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.12);
+    outline: none;
+}
+
+.dropdown-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.quantity-btn,
+.item-quantity-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    color: #4a5568;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn:hover,
+.item-quantity-btn:hover {
+    background: #cbd5e0;
+    color: #1a202c;
+}
+
+.quantity-display,
+.item-quantity-display {
+    min-width: 40px;
+    color: #1a202c;
+    font-weight: 700;
+    text-align: center;
+}
+
+.summary-section {
+    padding: 2rem;
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.selected-meals h3,
+.food-items-breakdown h3,
+.ingredients-breakdown h3,
+.admin-sidebar h2,
+.admin-editor h2 {
+    color: #1a202c;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.selected-list,
+.food-items-list,
+.ingredients-list,
+.admin-list,
+.admin-editor form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.selected-item,
+.food-item-summary,
+.ingredient-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+
+.selected-item {
+    border-left: 4px solid #2b6cb0;
+}
+
+.food-item-summary {
+    border-left: 4px solid #805ad5;
+}
+
+.ingredient-item {
+    border-left: 4px solid #2f855a;
+}
+
+.selected-item-name,
+.food-item-name,
+.ingredient-name {
+    color: #2d3748;
+    font-weight: 600;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.selected-item-quantity,
+.food-item-quantity,
+.ingredient-quantity {
+    flex: 0 0 auto;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+}
+
+.selected-item-quantity {
+    background: #2b6cb0;
+}
+
+.food-item-quantity {
+    background: #805ad5;
+}
+
+.ingredient-quantity {
+    background: #2f855a;
+}
+
+.empty-state {
+    color: #718096;
+    font-style: italic;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.primary-btn,
+.reset-btn,
+.danger-btn {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    min-height: 42px;
+    padding: 0.7rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background: #2b6cb0;
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background: #2c5282;
+}
+
+.primary-btn:disabled,
+.reset-btn:disabled,
+.danger-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.primary-btn:disabled:hover {
+    background: #2b6cb0;
+}
+
+.reset-btn:disabled:hover {
+    background: #c53030;
+}
+
+.danger-btn:disabled:hover {
+    background: #fff5f5;
+}
+
+.subtle-btn {
+    background: #edf2f7;
+    color: #2b6cb0;
+}
+
+.subtle-btn:hover {
+    background: #e2e8f0;
+}
+
+.subtle-btn:disabled:hover {
+    background: #edf2f7;
+}
+
+.reset-btn {
+    background: #c53030;
+    color: #ffffff;
+}
+
+.reset-btn:hover {
+    background: #9b2c2c;
+}
+
+.danger-btn {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    color: #c53030;
+}
+
+.danger-btn:hover {
+    background: #fed7d7;
+}
+
+.compact-btn {
+    min-height: 38px;
+    padding: 0.55rem 0.75rem;
+}
+
+.admin-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.admin-login {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.admin-login input {
+    width: min(230px, 100%);
+    background: #ffffff;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    color: #1a202c;
+    min-height: 42px;
+    padding: 0.7rem;
+}
+
+.admin-user {
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.admin-status {
+    color: #2f855a;
+    font-weight: 700;
+    min-height: 1.5rem;
+}
+
+.admin-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    overflow: hidden;
+}
+
+.admin-sidebar,
+.admin-editor {
+    padding: 1.25rem;
+}
+
+.admin-sidebar {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.admin-list {
+    max-height: 540px;
+    overflow: auto;
+    padding-right: 0.25rem;
+}
+
+.admin-list-item {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #2d3748;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.admin-list-item.active,
+.admin-list-item:hover {
+    background: #ebf8ff;
+    border-color: #2b6cb0;
+}
+
+.admin-editor label {
+    display: grid;
+    gap: 0.4rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.admin-editor input,
+.admin-editor select,
+.admin-editor textarea {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    color: #1a202c;
+    padding: 0.75rem;
+}
+
+.meal-item-editor,
+.ingredient-editor {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.meal-item-row,
+.ingredient-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 90px auto;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.meal-item-select,
+.meal-item-count,
+.ingredient-name-input,
+.ingredient-amount-input {
+    min-height: 38px;
+}
+
+.admin-editor textarea {
+    line-height: 1.45;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+    .summary-content,
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .dropdown-controls,
+    .summary-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .dropdown,
+    .reset-btn {
+        width: 100%;
+    }
+
+    .meal-item-row,
+    .ingredient-row {
+        grid-template-columns: 1fr;
+    }
+}

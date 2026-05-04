@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza This</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="active" href="index.html">Menu</a>
+                <a href="admin.html">Admin</a>
+            </nav>
+            <h1>Pizza This</h1>
+            <p>Select menu items to calculate exact pizza ingredient totals</p>
+        </header>
+
+        <main class="main-content">
+            <section class="meal-selector">
+                <h2>Select Menu Combo</h2>
+                <div class="dropdown-controls">
+                    <select id="mealDropdown" class="dropdown"></select>
+                    <div class="dropdown-quantity-controls">
+                        <button class="quantity-btn" id="mealDecreaseBtn" type="button" aria-label="Decrease selected meal">-</button>
+                        <span class="quantity-display" id="mealDropdownQty">0</span>
+                        <button class="quantity-btn" id="mealIncreaseBtn" type="button" aria-label="Increase selected meal">+</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="item-selector">
+                <h2>Select Menu Item</h2>
+                <div class="dropdown-controls">
+                    <select id="itemDropdown" class="dropdown"></select>
+                    <div class="dropdown-quantity-controls">
+                        <button class="item-quantity-btn" id="itemDecreaseBtn" type="button" aria-label="Decrease selected item">-</button>
+                        <span class="item-quantity-display" id="itemDropdownQty">0</span>
+                        <button class="item-quantity-btn" id="itemIncreaseBtn" type="button" aria-label="Increase selected item">+</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="summary-section">
+                <div class="summary-header">
+                    <h2>Ingredient Summary</h2>
+                    <button class="reset-btn" id="resetBtn" type="button">Reset All</button>
+                </div>
+
+                <div class="summary-content">
+                    <div class="selected-meals" id="selectedMeals">
+                        <h3>Selected</h3>
+                        <div class="selected-list" id="selectedList"></div>
+                    </div>
+
+                    <div class="food-items-breakdown" id="foodItemsBreakdown">
+                        <h3>Total Food Items</h3>
+                        <div class="food-items-list" id="foodItemsList"></div>
+                    </div>
+
+                    <div class="ingredients-breakdown" id="ingredientsBreakdown">
+                        <h3>Total Ingredients Needed</h3>
+                        <div class="ingredients-list" id="ingredientsList"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
